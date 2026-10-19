@@ -408,3 +408,392 @@ body {
     height: 2px;
     background: #e85b7a;
 }
+
+.product-card {
+    position: relative;
+    .product-actions {
+        position: absolute;
+        top: 15px;
+        right: 12px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        z-index: 5;
+    }
+}
+
+.product-actions {
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s ease;
+}
+
+.product-card:hover .product-actions {
+    opacity: 1;
+    visibility: visible;
+}
+
+.product-actions {
+    position: absolute;
+    top: 15px;
+    right: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 5;
+}
+
+.product-actions button {
+    width: 38px;
+    height: 38px;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    background: white;
+    color: #555;
+    font-size: 23px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px #00000015;
+}
+
+.product-actions button:hover {
+    background: #f15b4a;
+    color: white;
+}
+
+.product-tabs button {
+    background: transparent;
+    border: none;
+    padding: 10px 14px;
+    cursor: pointer;
+    font-weight: 600;
+    color: #333;
+    border-bottom: 3px solid transparent;
+}
+
+.product-tabs button.active {
+    color: #d94f70;
+    border-bottom-color: #d94f70;
+}
+
+.product-tabs {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    width: 100%;
+    white-space: nowrap;
+    overflow-x: auto;
+}
+
+.product-tabs button {
+    flex-shrink: 0;
+    white-space: nowrap;
+    padding: 10px 8px;
+}
+
+
+/* FREE SHIPPING */
+
+.free-shipping {
+    max-width: 1100px;
+    margin: 65px auto 42px;
+    padding: 18px;
+    border: 2px solid #d58a7d;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 15px;
+    background: #fff;
+    color: #222;
+}
+
+.shipping-icon {
+    font-size: 34px;
+}
+
+.free-shipping h3 {
+    font-size: 18px;
+    white-space: nowrap;
+}
+
+.free-shipping p {
+    font-size: 14px;
+    text-align: center;
+}
+
+.free-shipping h2 {
+    font-size: 21px;
+    white-space: nowrap;
+}
+
+
+/* FOUR PROMOTIONAL CARDS */
+
+.promo-banners {
+    max-width: 1100px;
+    margin: 0 auto 45px;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.promo-card {
+    height: 170px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 7px;
+    background: #e8e8e8;
+}
+
+.promo-card img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.promo-text {
+    position: absolute;
+    inset: 0;
+    padding: 15px;
+    color: white;
+    background: linear-gradient( 90deg, rgba(0, 0, 0, 0.58), rgba(0, 0, 0, 0.02));
+}
+
+.promo-text h3 {
+    font-size: 16px;
+    margin-bottom: 4px;
+}
+
+.promo-text p {
+    font-size: 13px;
+    margin-bottom: 8px;
+}
+
+.promo-text h2 {
+    font-size: 22px;
+    margin-bottom: 8px;
+}
+
+.promo-text span {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 4px;
+    background: white;
+    color: #222;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+@media (max-width: 800px) {
+    .free-shipping {
+        margin: 35px 12px;
+        flex-wrap: wrap;
+    }
+    .promo-banners {
+        margin: 0 12px 30px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 450px) {
+    .promo-banners {
+        grid-template-columns: 1fr;
+    }
+}
+
+.extra-products {
+    max-width: 1100px;
+    margin: 35px auto;
+    padding: 0 12px;
+}
+
+.extra-products h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.extra-products-grid {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.extra-product-card {
+    background: white;
+    box-shadow: 0 3px 12px #00000015;
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+.extra-product-card img {
+    width: 100%;
+    height: 175px;
+    object-fit: cover;
+    display: block;
+}
+
+.extra-product-info {
+    padding: 12px;
+}
+
+.extra-product-info h3 {
+    font-size: 13px;
+    min-height: 35px;
+}
+
+.extra-stars {
+    color: #f5aa22;
+    margin: 8px 0;
+}
+
+.extra-product-info strong {
+    color: #c76b64;
+}
+
+@media (max-width: 900px) {
+    .extra-products-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+.promo-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.promo-card img {
+    display: block;
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.promo-shop-btn {
+    position: absolute;
+    left: 20px;
+    bottom: 22px;
+    border: none;
+    border-radius: 5px;
+    background: white;
+    color: #333;
+    padding: 10px 16px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.promo-shop-btn:hover {
+    background: #222;
+    color: white;
+}
+
+
+/* BLOG SECTION */
+
+.blog-section {
+    max-width: 1200px;
+    margin: 45px auto;
+    padding: 0 12px;
+}
+
+.blog-section h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.blog-card {
+    min-width: 0;
+}
+
+.blog-image {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 6px;
+}
+
+.blog-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.blog-date {
+    position: absolute;
+    right: 8px;
+    bottom: 8px;
+    background: #ef665b;
+    color: white;
+    padding: 6px 8px;
+    font-size: 11px;
+    border-radius: 4px;
+}
+
+.blog-card h3 {
+    font-size: 14px;
+    margin: 12px 0 6px;
+}
+
+.blog-card p {
+    color: #777;
+    font-size: 13px;
+    line-height: 1.5;
+    margin-bottom: 14px;
+}
+
+.blog-card a {
+    color: #222;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+/* SERVICE FEATURES */
+
+.service-features {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 20px;
+    padding: 35px 12px;
+    margin-top: 35px;
+    background: #fafafa;
+    text-align: center;
+}
+
+.service-icon {
+    display: block;
+    font-size: 34px;
+    margin-bottom: 12px;
+}
+
+.service-item h3 {
+    font-size: 15px;
+    margin: 0 0 6px;
+}
+
+.service-item p {
+    font-size: 12px;
+    color: #666;
+    margin: 0;
+}
+
+@media (max-width: 700px) {
+    .blog-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .service-features {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
