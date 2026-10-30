@@ -2,6 +2,7 @@ import React from "react";
 import "./Header.css";
 
 function Header() {
+  const [showCategories, setShowCategories] = React.useState(false);
   return (
     <>
       {/* TOP BAR */}
@@ -58,13 +59,56 @@ function Header() {
         {/* NAVIGATION */}
         <nav className="navigation">
 
-          <div className="category-menu">
-            ☰ &nbsp; SHOP BY CATEGORIES
-          </div>
+         <div className="category-menu">
+  <button
+    type="button"
+    className="category-menu-btn"
+    onClick={() => setShowCategories(!showCategories)}
+  >
+    ☰ &nbsp; SHOP BY CATEGORIES
+    <span>⌄</span>
+  </button>
+
+  {showCategories && (
+    <div className="categories-dropdown">
+      <a href="#fashion">Fashion</a>
+      <a href="#electronics">Electronics</a>
+      <a href="#bags">Bags</a>
+      <a href="#footwear">Footwear</a>
+      <a href="#groceries">Groceries</a>
+      <a href="#beauty">Beauty</a>
+      <a href="#wellness">Wellness</a>
+      <a href="#jewellery">Jewellery</a>
+    </div>
+  )}
+</div>
 
           <a href="/">Home</a>
 
-          <a href="#">Fashion</a>
+          <div className="fashion-menu">
+  <a href="#fashion" className="fashion-link">
+    Fashion
+  </a>
+
+  <div className="fashion-dropdown">
+    <div>
+      <h4>Clothing</h4>
+      <a href="#men">Men</a>
+      <a href="#women">Women</a>
+      <a href="#kids">Kids</a>
+      <a href="#girls">Girls</a>
+      <a href="#boys">Boys</a>
+    </div>
+
+    <div>
+      <h4>Fashion Items</h4>
+      <a href="#tshirt">T-Shirt</a>
+      <a href="#jeans">Jeans</a>
+      <a href="#footwear">Footwear</a>
+      <a href="#watch">Watch</a>
+    </div>
+  </div>
+</div>
 
           <a href="#">New Arrivals</a>
 
@@ -73,7 +117,7 @@ function Header() {
           <a href="#">More</a>
 
           <div className="delivery">
-            Free International Delivery
+           🚀 Free International Delivery
           </div>
 
         </nav>

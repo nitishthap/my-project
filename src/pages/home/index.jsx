@@ -5,25 +5,61 @@ function Home() {
   "/image/hero1.jpg",
   "/image/hero2.jpg",
   "/image/hero3.png",
-  "/image/hero4.jpg",
+  "/image/hero4.jpg", 
 ];
 
 
   const [activeTab, setActiveTab] = React.useState("FASHION");
+  const [topBannerIndex, setTopBannerIndex] = useState(0);
+
+const bannerImages = [
+  "/image/banner.png",
+  "/image/banner2.png",
+  "/image/banner3.png"
+];
 const [imageIndex, setImageIndex] = useState(0);
 useEffect(() => {
   const timer = setInterval(() => {
-    setImageIndex((prev) => (prev + 1) % productImages.length);
+  setImageIndex((prev) => (prev + 1) % productImages.length);
   }, 3000);
-
   return () => clearInterval(timer);
 }, [productImages.length]);
 
 
-
   return (
     <main className="home-page">
+{/* NEW TOP BANNER */}
+{/* NEW TOP BANNER */}
+<section className="new-top-banner">
+  <img
+    src={bannerImages[topBannerIndex]}
+    alt="Sale Banner"
+  />
 
+  <button
+    type="button"
+    className="banner-arrow banner-arrow-left"
+    onClick={() =>
+      setTopBannerIndex(
+        (topBannerIndex - 1 + bannerImages.length) % bannerImages.length
+      )
+    }
+  >
+    ❮
+  </button>
+
+  <button
+    type="button"
+    className="banner-arrow banner-arrow-right"
+    onClick={() =>
+      setTopBannerIndex(
+        (topBannerIndex + 1) % bannerImages.length
+      )
+    }
+  >
+    ❯
+  </button>
+</section>
       {/* HERO SECTION */}
       <section className="hero-section">
 
@@ -31,25 +67,64 @@ useEffect(() => {
         <div className="main-banner">
 
           <img
-            src="/image/hero.jpg"
+            src={imageIndex === 0 ?"/image/hero.jpg" :"image/chair.png"}
             alt="Big Saving Days Sale"
           />
+          <div className="hero-arrows">
+  <button
+    type="button"
+    className="hero-arrow"
+    onClick={() =>
+      setImageIndex(
+        (imageIndex - 1 + productImages.length) %
+          productImages.length
+      )
+    }
+  >
+    ‹
+  </button>
 
-          <div className="banner-content">
-            <p>Big Saving Days Sale</p>
+  <button
+    type="button"
+    className="hero-arrow"
+    onClick={() =>
+      setImageIndex(
+        (imageIndex + 1) % productImages.length
+      )
+    }
+  >
+    ›
+  </button>
+</div>
+          
 
-            <h2>
-              Men Solid Round
-              <br />
-              Green T-Shirt
-            </h2>
-
-            <div className="price">
-              Starting At Only <strong>$59.00</strong>
-            </div>
-
-            <button>SHOP NOW</button>
-          </div>
+         {imageIndex === 0 ? (
+  <div className="banner-content">
+    <p>Big Saving Days Sale</p>
+    <h2>
+      Men Solid Round
+      <br />
+      Green T-Shirt
+    </h2>
+    <div className="price">
+      Starting At Only <strong>$59.00</strong>
+    </div>
+    <button>SHOP NOW</button>
+  </div>
+) : (
+  <div className="banner-content">
+    <p>Special Furniture Sale</p>
+    <h2>
+      Comfortable
+      <br />
+      Modern Chair
+    </h2>
+    <div className="price">
+      Starting At Only <strong>$129.00</strong>
+    </div>
+    <button>SHOP NOW</button>
+  </div>
+)}
 
           <div className="slider-dots">
             <span className="active"></span>
@@ -698,12 +773,12 @@ src={productImages[imageIndex]}
   </div>
 
   <div className="promo-card">
-    <img src="/image/promo2.jpg" alt="Fashion deals" />
+    <img src="/image/fashion.jpg" alt="Fashion deals" />
     <button className="promo-shop-btn">Shop Now →</button>
   </div>
 
   <div className="promo-card">
-    <img src="/image/promo3.jpg" alt="Korean food deals" />
+    <img src="/image/food.jpg" alt="Korean food deals" />
     <button className="promo-shop-btn">Shop Now →</button>
   </div>
 </section>
@@ -718,7 +793,7 @@ src={productImages[imageIndex]}
       <article className="blog-card" key={item}>
         <div className="blog-image">
           <img
-            src="/image/blog1.jpg"
+            src="/image/eye.jpg"
             alt="Technology and innovation"
           />
           <span className="blog-date">◷ 18 oct, 2026</span> 
@@ -766,9 +841,75 @@ src={productImages[imageIndex]}
     <h3>Support 24/7</h3>
     <p>Contact us Anytime</p>
   </div>
+
 </section>
+  {/* Footer section */}
+      <footer className="main-footer">
+        <div className="footer-column">
+          <h3>Contact us</h3>
+          <p>Classyshop - Mega Super Store</p>
+          <p>507-Union Trade Centre France</p>
+          <p>nitishthapa@gmail.com</p>
+          <h2>+91 7037642132</h2>
+          <h3>Online Chat</h3>
+          <h4>Get Expert Help</h4>
+        </div>
+
+        <div className="footer-column">
+          <h3>Products</h3>
+          <p>Prices drop</p>
+          <p>New products</p>
+          <p>Best sales</p>
+          <p>Contact us</p>
+          <p>Sitemap</p>
+          <p>Stores</p>
+        </div>
+
+        <div className="footer-column">
+          <h3>Our company</h3>
+          <p>Delivery</p>
+          <p>Legal Notice</p>
+          <p>Terms and conditions of use</p>
+          <p>About us</p>
+          <p>Secure payment</p>
+          <p>Login</p>
+        </div>
+
+        <div className="footer-column">
+          <h3>Subscribe to newsletter</h3>
+          <p>
+            Subscribe to our latest newsletter to get news about
+            special discounts.
+          </p>
+          <input type="email" placeholder="Your Email Address" />
+          <button>SUBSCRIBE</button>
+          <p>
+            <input type="checkbox" defaultChecked /> I agree to the terms
+            and conditions and the privacy policy
+          </p>
+        </div>
+        
+      </footer>
+     <div className="footer-bottom">
+  <div className="footer-social">
+    <a href="#">f</a>
+    <a href="#">▶️</a>
+    <a href="#">p</a>
+    <a href="#">◎</a>
+  </div>
+
+  <p>© 2024 - Ecommerce Template</p>
+
+  <div className="payment-icons">
+    <img src="/image/visa.png" alt="Visa" />
+    <img src="/image/mastercard.png" alt="Mastercard" />
+    <img src="/image/amex.png" alt="American Express" />
+    <img src="/image/paypal.png" alt="PayPal" />
+  </div>
+</div>
     </main>
   );
 }
+    
 
 export default Home;
